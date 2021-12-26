@@ -23,16 +23,18 @@ def app():
                     else:
                         # Move files to suggested path
                         file = file.split('/')[0]
-                        extension: str = raw_file_name.split(".")[1]
+                        extension: str = raw_file_name.split(".")[-1]
                         # User must add file to custom extension folder
-                        print("Unmoved: ", file, f"Extension: .{extension}")
                         folder: str = configuration.get_custom_folder(name=extension) \
-                            if configuration.get_custom_folder(name=extension) != '' \
+                            if configuration.get_custom_folder(name=extension) \
                             else configuration.get_folder_name(name=file)
                         if folder:
                             print(raw_file_name + " to :" + folder + f" [Extension: .{extension}]")
                             create_folder(name=folder)
                             move_file(name=raw_file_name, to_path=folder)
+                        else:
+                            print("Unmoved: ", file, f"{raw_file_name} - Extension: .{extension}")
+
                 except PermissionError as e:
                     print("Permission denied for the following file:    " + e.filename)
                 except FileError as e:
@@ -40,6 +42,8 @@ def app():
                 except FileNotFoundError as e:
                     print("The path could not be found:     ", e.filename)
                     app()
+                except UnicodeDecodeError as e:
+                    print("Ran into unsupported file name.   ", e)
 
             else:
                 pass

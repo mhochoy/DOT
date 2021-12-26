@@ -20,6 +20,14 @@ def set_config(self):
     user_path: str = input("Path:   ")
     if user_path == "q" or user_path == "quit":
         raise QuitInterrupt
+    if "dotext" == user_path:
+        new_custom_extension = input("'[extension] [folder]':     ")
+        b = new_custom_extension.split(" ")
+
+        config: Set[dict] = read_config()
+        if config:
+            config.update("custom_extension_folders", [].append(b))
+
     if f'{user_path[0]}:\\Windows' in user_path or "C:\\" == user_path:
         raise Exception("Cannot edit Windows directory.")
     if user_path != "":
@@ -38,7 +46,7 @@ class Config:
     audio: str = "Audio"
     application: str = "Applications"
     text: str = "Text"
-    image: str = "Image"
+    image: str = "Images"
     video: str = "Videos"
     folders: dict = {"audio": audio,
                      "application": application,
@@ -49,7 +57,16 @@ class Config:
 
     # Extension Handling
     extension_filter: list = []
-    custom_extension_folders: dict = {'rdp': "My Custom Folder", 'url': "Shortcuts", 'flp': "FLPs"}
+    custom_extension_folders: dict = {'rdp': "My Custom Folder",
+                                      'pdf': "Documents",
+                                      'url': "Shortcuts",
+                                      'flp': "FLPs",
+                                      'reg': "Registry Files",
+                                      'fbx': "Models",
+                                      'zip': "ZIP Files",
+                                      'rar': "RAR Files",
+                                      'unitypackage': "Unity Packages",
+                                      'torrent': "Torrents"}
 
     def __init__(self, path):
         if path is None:
