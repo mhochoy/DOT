@@ -7,6 +7,11 @@ class FileError(Exception):
         pass
 
 
+class QuitInterrupt(Exception):
+    def __init__(self):
+        pass
+
+
 def parse_magic_io_error(err):
     # Regular expressions for filename and file-type parsing from Magic errors
     fn = re.search(r"`\w+[a-z A-Z]\w+", err)
