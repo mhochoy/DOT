@@ -21,13 +21,8 @@ def set_config(self):
     if user_path == "q" or user_path == "quit":
         raise QuitInterrupt
     if "dotext" == user_path:
-        new_custom_extension = input("'[extension] [folder]':     ")
-        b = new_custom_extension.split(" ")
-
-        config: Set[dict] = read_config()
-        if config:
-            config.update("custom_extension_folders", [].append(b))
-
+        # Custom Extension Handling
+        return
     if f'{user_path[0]}:\\Windows' in user_path or "C:\\" == user_path:
         raise Exception("Cannot edit Windows directory.")
     if user_path != "":
