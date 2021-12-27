@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='DesktopOrganizationTool',
+    name='DOT',
     version='1.0.0',
     packages=['python-magic'],
     url='https://github.com/mhochoy',
