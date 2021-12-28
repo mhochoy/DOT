@@ -137,6 +137,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="__init__.py -- Module initialization&#10;errors.py -- parse_magic_io_error handles numbers in extensions properly now&#10;config.py -- Added some folders for some custom extensions&#10;main.py -- Proper unmoved file detection, unsupported character detection" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="691" y="134" key="#__init__" timestamp="1640663286453">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="134" key="#__init__/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1640663286453" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1640538980159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

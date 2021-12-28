@@ -23,12 +23,13 @@ def set_config(self):
     if "dotext" == user_path:
         # Custom Extension Handling
         return
-    if f'{user_path[0]}:\\Windows' in user_path or "C:\\" == user_path:
+    if f'{user_path[0]}:\\Windows' in user_path or ("C:\\", "C:") == user_path:
         raise Exception("Cannot edit Windows directory.")
     if user_path != "":
         try:
             os.chdir(user_path)
             configuration: Config = Config(path=user_path)
+            # Check config path against Current Working Directory for safety
             check_dir(path=configuration.path)
         except Exception as e:
             print(e)

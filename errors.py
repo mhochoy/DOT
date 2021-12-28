@@ -13,7 +13,7 @@ class QuitInterrupt(Exception):
 
 
 def parse_magic_io_error(err):
-    # Regular expressions for filename and file-type parsing from Magic errors
+    # Regular expressions for filename and file extension parsing from Magic errors
     fn = re.search(r"`\w+[a-z A-Z]\w+", err)
     file_type = re.search(r"\.\w+[a-zA-Z0-9]", err)
     # Filename with extension
