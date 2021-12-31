@@ -1,9 +1,9 @@
+import magic
+import os
 from config import set_config, Config, read_config, write_config
 from security import is_file
 from errors import FileError, QuitInterrupt, parse_magic_io_error
 from tools import move_file, create_folder
-import magic
-import os
 
 configuration = None
 
@@ -29,7 +29,7 @@ def organize_files(config: Config):
             try:
                 file_type = magic.from_file(filename=raw_file_name, mime=True)
                 if 'cannot open' in file_type:
-                    raise FileError(file)
+                    raise FileError(file_type)
                 else:
                     file_type = file_type.split('/')[0]
                     extension: str = raw_file_name.split(".")[-1]
@@ -80,3 +80,6 @@ def quit_app():
         write_config(config=configuration)
     print("Quiting...")
     quit()
+
+
+app()
